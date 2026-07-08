@@ -46,15 +46,6 @@ android/*.keystore
 adbkey
 adbkey.pub
 
-# iOS
-ios/Pods/
-ios/build/
-ios/DerivedData/
-*.xcworkspace
-*.xcuserstate
-*.xcuserdatad
-*.xcworkspacedata
-
 # Xcode
 *.xcuserstate
 *.xcuserdata/
