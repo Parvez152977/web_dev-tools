@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger Menu Toggle</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.5;
+            color: var(--text);
+            background: var(--bg)
+        }
+
+        #header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 48px;
+            background: var(--bg);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1)
+        }
+
+        .branding {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary)
+        }
+
+        .nav {
+            position: relative;
+        }
+
+        #Menu {
+            position: absolute;
+            top: 100%;
+
+            /* Position below the hamburger */
+            .nav {
+                position: relative;
+            }
+
+            #Menu {
+                position: absolute;
+                top: 100%;
+                /* Position below the hamburger */
+                right: 0;
+                width: 200px;
+                background-color: rgb(217, 231, 255);
+                display: none;
+                z-index: 1000;
+                /* Ensure it appears on top */
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                padding: 10px 20px;
+            }
+
+            right: 0;
+            width: 200px;
+            background-color: rgb(217, 231, 255);
+            display: none;
+            z-index: 1000;
+            /* Ensure it appears on top */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+        }
+
+
+        .container {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .bar1,
+        .bar2,
+        .bar3 {
+            width: 35px;
+            height: 5px;
+            background-color: #333;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .change .bar1 {
+            -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+            transform: rotate(-45deg) translate(-9px, 6px);
+        }
+
+        .change .bar2 {
+            opacity: 0;
+        }
+
+        .change .bar3 {
+            -webkit-transform: rotate(45deg) translate(-8px, -8px);
+            transform: rotate(45deg) translate(-8px, -8px);
+        }
+    </style>
+</head>
+
+<body>
+    <header id="site-header" class="site-header">
+        <div id="header-container" class="header-container">
+            <div class="branding">
+                <div class="logo">
+                    <img src="Images/logo.png" alt="Hero Travel Logo">
+                </div>
+                <div id="title-name">
+                    <h1 class="site-title">Hero Travel</h1>
+                </div>
+            </div>
+            <div class="nav">
+                <nav>
+
+
+                    <div class="container" onclick="ShowHide(this)">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+
+                    <div id="Menu" style="width: 150px; background-color: rgb(217, 231, 255); display: none;">
+                        <h2><a href="#Home">Home</a></h2>
+                        <h2><a href="#Packages">Packages</a></h2>
+                        <h2><a href="#Testimonial">Testimonial</a></h2>
+                        <h2><a href="#Blog">Blog</a></h2>
+                        <h2><a href="#Contact">Contact</a></h2>
+                    </div>
+                </nav>
+            </div>
+
+        </div>
+    </header>
+    <main>
+
+    </main>
+    <footer>
+
+    </footer>
+
+
+    <script>
+        function ShowHide(x) {
+            x.classList.toggle("change");
+            var menu = document.getElementById("Menu");
+            if (menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "block";
+            } else {
+                menu.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
