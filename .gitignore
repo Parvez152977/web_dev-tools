@@ -1,0 +1,95 @@
+# React Native / Node
+node_modules/
+package-lock.json
+yarn.lock
+.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.expo/
+.expo-shared/
+*.log
+.cache/
+temp/
+tmp/
+.DS_Store
+*.swp
+Thumbs.db
+*.orig
+*.hprof
+*.tmp
+
+# Environment files
+.env
+.env.*
+*.local
+
+# IDE / editor
+.vscode/
+.idea/
+*.iml
+*.bak
+*.tmp
+
+# Android
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+android/gradle.properties
+android/gradlew
+android/gradlew.bat
+android/gradle/
+android/*.keystore
+android/*.jks
+android/*.keystore
+adbkey
+adbkey.pub
+
+# iOS
+ios/Pods/
+ios/build/
+ios/DerivedData/
+*.xcworkspace
+*.xcuserstate
+*.xcuserdatad
+*.xcworkspacedata
+
+# Xcode
+*.xcuserstate
+*.xcuserdata/
+*.mode1v3
+*.pbxuser
+*.perspectivev3
+project.xcworkspace/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Misc
+build/
+dist/
+coverage/
+.jest_cache/
+metro-cache/
+.expo/cache/
+
+# Full stack / backend
+.env.local
+.env.*.local
+coverage/
+logs/
+*.pid
+*.seed
+
+# Credentials and secrets
+credentials.json
+key.json
+
+# Generated native files
+*.iml
+.idea/
+.vscode/
