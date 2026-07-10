@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore · Hero</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f0f4f8;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem
+        }
+
+        .hero {
+            max-width: 1200px;
+            width: 100%;
+            background: linear-gradient(145deg, #fff, #f9fcff);
+            border-radius: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            padding: 3rem 3rem 3.5rem;
+            border: 1px solid rgba(255, 255, 255, .5);
+            backdrop-filter: blur(2px);
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero>* {
+            position: relative;
+            z-index: 2
+        }
+
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none
+        }
+
+        .hero::before {
+            top: -20%;
+            right: -10%;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(42, 125, 225, .04), transparent 70%)
+        }
+
+        .hero::after {
+            bottom: -15%;
+            left: -5%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(42, 125, 225, .03), transparent 70%)
+        }
+
+        .hero-title {
+            font-size: clamp(2.6rem, 8vw, 4.8rem);
+            font-weight: 700;
+            letter-spacing: -.02em;
+            color: #0b1e33;
+            margin-bottom: .6rem;
+            line-height: 1.1;
+            display: flex;
+            align-items: center;
+            gap: .3rem;
+            flex-wrap: wrap
+        }
+
+        .hero-title i {
+            color: #2a7de1;
+            font-size: .8em;
+            margin-left: .2rem;
+            opacity: .9
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 1.6vw, 1.25rem);
+            color: #2c3e50;
+            max-width: 680px;
+            line-height: 1.6;
+            margin-bottom: 2.8rem;
+            font-weight: 400;
+            background: rgba(255, 255, 255, .5);
+            padding: .4rem 1.2rem;
+            border-radius: 60px;
+            display: inline-block;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .02);
+            border: 1px solid rgba(255, 255, 255, .7)
+        }
+
+        .hero-sub i {
+            color: #2a7de1;
+            margin-right: .4rem
+        }
+
+        .travel-filters {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: .75rem 1.2rem;
+            background: #fff;
+            padding: .9rem 1.8rem;
+            border-radius: 80px;
+            box-shadow: 0 8px 20px rgba(0, 20, 40, .08);
+            border: 1px solid #e9eef3;
+            margin-top: 1rem;
+            transition: box-shadow .2s
+        }
+
+        .travel-filters:hover {
+            box-shadow: 0 12px 28px rgba(0, 20, 40, .12)
+        }
+
+        .filter-item {
+            display: flex;
+            align-items: center;
+            gap: .5rem .8rem;
+            flex-wrap: wrap;
+            padding: .2rem 0
+        }
+
+        .filter-item i {
+            color: #2a7de1;
+            font-size: 1.1rem;
+            width: 1.4rem;
+            text-align: center;
+            opacity: .8
+        }
+
+        .filter-item span {
+            font-weight: 500;
+            color: #1e2f3f;
+            font-size: 1rem;
+            letter-spacing: .01em;
+            background: #f2f6fb;
+            padding: .4rem 1rem .4rem .8rem;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: .3rem;
+            border: 1px solid transparent;
+            transition: .15s;
+            cursor: default
+        }
+
+        .filter-item span i {
+            font-size: .8rem;
+            color: #5f7d9c;
+            margin-left: .2rem
+        }
+
+        .filter-item:first-child span {
+            background: #e6effa;
+            padding-left: 1.2rem
+        }
+
+        .filter-divider {
+            width: 1px;
+            height: 30px;
+            background: #dce4ec;
+            margin: 0 .2rem;
+            flex-shrink: 0
+        }
+
+        .btn-find {
+            background: #1a5fb4;
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: .6rem 2rem .6rem 2rem;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .6rem;
+            letter-spacing: .3px;
+            box-shadow: 0 8px 18px rgba(26, 95, 180, .25);
+            transition: .2s ease;
+            cursor: default;
+            border: 1px solid rgba(255, 255, 255, .2);
+            margin-left: auto;
+            white-space: nowrap
+        }
+
+        .btn-find i {
+            font-size: .9rem;
+            transition: transform .15s
+        }
+
+        .btn-find:hover {
+            background: #0f4a94;
+            box-shadow: 0 10px 24px rgba(26, 95, 180, .35);
+            transform: scale(1.01)
+        }
+
+        .btn-find:hover i {
+            transform: translateX(3px)
+        }
+
+        @media(max-width:820px) {
+            .hero {
+                padding: 2rem 1.8rem;
+                border-radius: 2rem
+            }
+
+            .travel-filters {
+                border-radius: 40px;
+                padding: 1.2rem 1.5rem;
+                flex-direction: column;
+                align-items: stretch;
+                gap: .6rem;
+                background: #ffffffdd;
+                backdrop-filter: blur(6px)
+            }
+
+            .filter-divider {
+                display: none
+            }
+
+            .filter-item {
+                width: 100%;
+                justify-content: flex-start;
+                padding: .2rem 0;
+                border-bottom: 1px solid #eef3f8
+            }
+
+            .filter-item:last-of-type {
+                border-bottom: none
+            }
+
+            .filter-item span {
+                background: transparent;
+                padding: .3rem .2rem;
+                border-radius: 0;
+                font-weight: 500;
+                color: #1f3a57;
+                flex: 1
+            }
+
+            .filter-item i {
+                width: 2rem;
+                font-size: 1.2rem
+            }
+
+            .btn-find {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+                padding: .8rem 1.5rem;
+                margin-top: .4rem
+            }
+
+            .hero-sub {
+                background: transparent;
+                padding: 0 0 .2rem 0;
+                border-radius: 0;
+                box-shadow: none;
+                border: none;
+                backdrop-filter: none;
+                max-width: 100%
+            }
+        }
+
+        @media(max-width:500px) {
+            .hero {
+                padding: 1.5rem 1.2rem
+            }
+
+            .hero-title {
+                font-size: 2.2rem
+            }
+
+            .travel-filters {
+                padding: 1rem 1.2rem;
+                gap: .4rem
+            }
+
+            .filter-item span {
+                font-size: .95rem
+            }
+
+            .btn-find {
+                font-size: .95rem;
+                padding: .7rem 1rem
+            }
+        }
+
+        .hero-title i.fa-plane-departure {
+            font-size: .7em;
+            color: #1f6bc0
+        }
+
+        .filter-item:first-child span i {
+            color: #1a5fb4
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero">
+        <h1 class="hero-title">Explore Your Travel <i class="fas fa-plane-departure"></i></h1>
+        <p class="hero-sub"><i class="fas fa-quote-left" style="font-size:.7rem;opacity:.6"></i> Dolor sit amet
+            consectetur. suspendisse vitae ultricies dolor adipiscing. In et odio enim ac quis sapien urna eu phasellus.
+        </p>
+        <div class="travel-filters">
+            <div class="filter-item"><i class="fas fa-globe-americas"></i><span>Where go <i
+                        class="fas fa-chevron-down"></i></span></div>
+            <div class="filter-divider"></div>
+            <div class="filter-item"><i class="fas fa-calendar-alt"></i><span>When <i
+                        class="fas fa-chevron-down"></i></span></div>
+            <div class="filter-divider"></div>
+            <div class="filter-item"><i class="fas fa-tag"></i><span>Select Type <i
+                        class="fas fa-chevron-down"></i></span></div>
+            <div class="btn-find"><i class="fas fa-search"></i> Find Now</div>
+        </div>
+        <div
+            style="margin-top:2.2rem;font-size:.75rem;color:#6a7f96;letter-spacing:.3px;display:flex;gap:1.2rem;flex-wrap:wrap;border-top:1px solid #e2eaf2;padding-top:1.2rem;opacity:.7;justify-content:center">
+            <span><i class="fas fa-map-pin" style="margin-right:6px"></i>12,000+ destinations</span>
+            <span><i class="fas fa-clock" style="margin-right:6px"></i>flexible dates</span>
+            <span><i class="fas fa-shield-alt" style="margin-right:6px"></i>best price guarantee</span>
+        </div>
+    </section>
+</body>
+
+</html>
