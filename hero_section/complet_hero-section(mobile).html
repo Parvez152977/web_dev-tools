@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Section</title>
+    <style>
+        .hero {
+            max-width: 1200px;
+            width: 100%;
+            background-image: url('Images/hero.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border-radius: 2.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+            padding: 3rem 3rem 3.5rem;
+            border: 1px solid rgba(255, 255, 255, .5);
+            backdrop-filter: blur(2px);
+            position: relative;
+            overflow: hidden
+        }
+
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #0b1e33;
+            margin-bottom: .6rem;
+            line-height: 1.1;
+            text-align: center;
+            align-items: center;
+        }
+
+        .hero-title h1 {
+            text-align: center;
+        }
+
+        .hero-sub {
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #033366;
+            max-width: 680px;
+            line-height: 1.6;
+            margin-bottom: 2.8rem;
+            font-weight: 500;
+            padding: .4rem 1.2rem;
+            border-radius: 60px;
+            display: inline-block;
+            backdrop-filter: blur(4px);
+            text-align: center;
+        }
+
+
+        .travel-filters {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: .75rem 1.2rem;
+            background: rgba(255, 255, 255, 0.3);
+            padding: .9rem 1.8rem;
+            border-radius: 20px;
+            border: 1px solid #e9eef3;
+            margin-top: 1rem;
+            transition: box-shadow .2s;
+
+        }
+
+        .travel-filters:hover {
+            box-shadow: 0 12px 28px rgba(0, 20, 40, .12)
+        }
+
+        .filter-item {
+            background: transparent;
+            /* or remove this line */
+            border: none;
+            padding: 0;
+            /* ... rest stays */
+        }
+
+        .filter-item span {
+            display: block;
+            width: 100%;
+        }
+
+        #travel-date,
+        #travel-type {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #travel-type,
+        #travel-date,
+        .filter-item span input {
+            width: 100%;
+            background: #fff;
+            padding: .8rem 1rem;
+            border-radius: 10px;
+            border: 1px solid #dce4ec;
+            font-size: 1.5rem;
+            color: #0c0c0c;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color .2s;
+        }
+
+        #travel-date [type="date"] {
+            height: 50px;
+            width: 50px;
+        }
+
+        #travel-type select {
+            height: 30px;
+            width: 30px;
+            border: none;
+            background: none;
+        }
+
+        .filter-item span input:focus {
+            border-color: #2a7de1;
+        }
+
+
+        .btn-find {
+            background: #1a5fb4;
+            border: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: .6rem 2rem .6rem 2rem;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .6rem;
+            letter-spacing: .3px;
+            box-shadow: 0 8px 18px rgba(26, 95, 180, .25);
+            transition: .2s ease;
+            cursor: default;
+            border: 1px solid rgba(255, 255, 255, .2);
+            white-space: nowrap
+        }
+
+        .btn-find {
+            font-size: .9rem;
+            transition: transform .15s
+        }
+
+        .btn-find:hover {
+            background: #0f4a94;
+            box-shadow: 0 10px 24px rgba(26, 95, 180, .35);
+            transform: scale(1.01)
+        }
+
+        .btn-find:hover {
+            transform: translateX(3px)
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main id="site-main">
+        <section class="hero">
+            <h1 class="hero-title">Explore Your Travel </h1>
+            <p class="hero-sub">Designed for the modern explorer. Access premium destinations, expert recommendations,
+                and seamless travel planning—all
+                tailored to you.
+            </p>
+            <div class="travel-filters">
+                <div class="filter-item"><span><input type="text" placeholder="Where go"></span></div>
+                <div class="filter-divider"></div>
+                <div id="travel-date" class="filter-item">
+                    <div>
+                        <span class="date-placeholder"><label for="travel-date">When</label></span>
+
+                    </div>
+                    <div><span><input type="date" /></span></div>
+                </div>
+                <div class="filter-divider"></div>
+                <div id="travel-type" class="filter-item">
+                    <div><span><label for="travel-type">Select Travel Type</label></span></div>
+                    <div><span>
+                            <select>
+                                <option value="" disabled selected></option>
+                                <option value="adventure">Adventure</option>
+                                <option value="beach">Beach & Relaxation</option>
+                                <option value="city">City Break</option>
+                                <option value="culture">Culture & History</option>
+                                <option value="luxury">Luxury</option>
+                                <option value="family">Family</option>
+                                <option value="romantic">Romantic</option>
+                                <option value="wildlife">Wildlife & Nature</option>
+                            </select></span></div>
+
+                </div>
+                <div class="btn-find">Find Now</div>
+            </div>
+
+        </section>
+
+        <section id="about">
+        </section>
+    </main>
+</body>
+
+</html>
